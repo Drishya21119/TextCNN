@@ -30,7 +30,7 @@ Text Classification is one of the most valuable tasks of Natural language proces
 and more.
 
 **Text Classification** is a process that provides labels to the set of texts or words in one, zero, or predefined label format. These labels tell us about the sentiment of the text.
-<center><img src='pre.PNG' width="400" height="200"></center>
+<center><img src='images/pre.PNG' width="400" height="200"></center>
 There may be different models through which we can train our machines to understand human languages. A machine can not directly understand the inputted data in the form of text; we need to transform this data and can do this in various ways:
 1. Corpus in NLP: count the occurrence of each word in the sentence and provide it for the entire text.
 2. CountVectorizer: make a vocabulary where every word has its special index number. 
@@ -59,7 +59,7 @@ As Yoon Kim gave his paper, the main focus remains on TextCNN and its variants.
 Convolutional Neural Network is just a kind of neural network that performs well in image classification and computer vision. Its convolutional layer differs from other neural networks. We will be dealing with CNN for Text Classification.
 Back in the 2014, [Yoon Kim](https://aclanthology.org/D14-1181) devised a very simple Convolutional Neural Network for Sentence Classification as a foundation for text classification and tried different variants of it to compare the performance. The main model focussed in this article will revolve around this architecture given by Yoon Kim.
 
-<center><img src='download.png' width="400" height="600"></center>
+<center><img src='images/architecture.png' width="400" height="600"></center>
 
 The image above shows the CNN structure used by Yoon Kim, which is the basic CNN structure used for text classification. We consider text data as sequential data like data in time series, a one-dimensional matrix. We need to work with a one-dimensional convolution layer. The model idea is almost the same, but the data type and dimension of convolution layers changed. To work with TextCNN, we require a word embedding layer and a one-dimensional convolutional network. 
 
@@ -77,7 +77,7 @@ Lastly, the fully connected layers and the output activation function will give 
 (code can be found at )
 **Dataset Used.**
 The dataset used to test the models is Movie Review Dataset. (MR Dataset). In this dataset, the phrases are given and their corresponding sentiments.
-<center><img src='data.PNG'></center>
+<center><img src='images/data.PNG'></center>
 **Yoon Kim code implementations and results:**
 The architecture Kim uses is:
 1. Sentences are represented as vectors of words.
@@ -89,15 +89,6 @@ Approaches for creating these word vectors:
 3. CNN-non-static: as above, but the vectors are fine-tuned (i.e., they can be changed) during training.
 4. CNN-multichannel: Two sets of word vectors are used. Fine-tuning is done.
 Convolutions are performed on these 2D representations with different window sizes (3, 4, and 5) are performed on the representations directly and then max pooled. Then the final predictions are made!
-
-The accuracies for some of the datasets are are shown (as obtained by Yoon Kim)
-|Model   |  MR | SST1|SST2 |
-|:----:|:----:|:----:|:----:|
-| CNN-rand |73.1 |45.0|82.7|
-|CNN-static|81.0| 45.5|86.8|
-|CNN-non-static|81.5|48.0|87.2|
-|CNN-multichannel|81.1|47.4|88.1|
-
 For the implementation of these, I took the Movies Review dataset (MR) and tried to obtain the results. MR datset is used to for all the models so that we can compare them.
 My Results:
 |Parameter   |  Value | 
@@ -116,7 +107,10 @@ These values may change and hence the accuracies may change accordingly.
  CNN-static | 43.66 | 
  CNN-trainable | 50.05 | 
  CNN-binary-trainable | 49.48 |
+ Logistic Regression | 54.3 |
+ Naive Bayes | 48 |
   
+ Yoon Kim accuracies are higher as compared to above as the number of epochs and other parameters used may differ.
  This was the basic implementation and results for Text Classification using CNN.
 
 ### NNI — An AutoML Toolkit
@@ -141,8 +135,8 @@ The folder contains the following files:
     
  
 The code runs on the localhost and we can check the values from there. An image of the web interface is shown below.
-<center><img src='Screenshot (77).png' width="800" height="500"></center>
-<center><img src='Screenshot (78).png' width="800" height="500"></center>
+<center><img src='images/nni1.png' width="800" height="500"></center>
+<center><img src='images/nni2.png' width="800" height="500"></center>
 
 **Results**
 The best results according to the search space defined came out with the following hyperparameters as:
@@ -171,7 +165,7 @@ This was implemented for the MR dataset.
 AutoKeras describes the best model architecture and we can check this by summary().
 
 ### Conclusion
-This study's main focus remained on Text Classification and its various methods. We approached Convolutional Neural Network and defined its architecture starting from the basic models like Logistic Regression and Naive Bayes. The accuracy shows that the best model is CNN. This was further extended to nni where we define a search space instead of manually changing the parameters and getting the best accuracy. The final library was the AutoKeras which automatically determines the best model.
+This study's main focus remained on Text Classification and its various methods. We approached Convolutional Neural Network and defined its architecture starting from the basic models like Logistic Regression and Naive Bayes. The accuracy shown by nni and autokeras suggests that the best model is CNN. This was further extended to nni where we define a search space instead of manually changing the parameters and getting the best accuracy. The final library was the AutoKeras which automatically determines the best model.
 
 ### References
 

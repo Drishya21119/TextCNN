@@ -36,7 +36,7 @@ There may be different models through which we can train our machines to underst
 1. Corpus in NLP: count the occurrence of each word in the sentence and provide it for the entire text.
 2. CountVectorizer: make a vocabulary where every word has its special index number. 
 
-Let's take the above example to see how it works.
+Let's take the above example to see how it works. <br>
 Input:
     
     from sklearn.feature_extraction.text import CountVectorizer
@@ -74,7 +74,7 @@ One problem is the different lengths of words for which we need to specify the l
 We use a predefined word embedding available from the library for better performance. If the data is not embedded, then many embeddings are available open-source, like Glove and Word2Vec.When we do dot product of vectors representing text, which turns zero if they belong to the same class, but if we do dot products of embedded words, we can find interrelation of words for a specific class. The kernel(filter layer) is passed over these embeddings to find convolutions, and the Max Pooling Layer of CNN dimensionally reduces these.Lastly, the fully connected layers and the output activation function will give values for each class.
 
 ### The Code:
-(code can be found at https://github.com/Drishya21119/TextCNN)
+(code can be found at https://github.com/Drishya21119/TextCNN) <br>
 **Dataset Used.**
 The dataset used to test the models is Movie Review Dataset (MR Dataset). In this dataset, the phrases are given and their corresponding sentiments.
 <center><img src='images/data.PNG'></center>

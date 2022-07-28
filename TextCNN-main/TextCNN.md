@@ -15,10 +15,11 @@ mathjax: yes
 1. Text Classification using CNN and other models
 2. NNI for TextCNN
 3. AutoKeras
-<p>Convolutional Neural Networks, a deep learning algorithm, is used for various computations, especially when dealing with images. The architecture of CNN can be used in the field of "Text Classification" to specify the labels to text. Much work has been done in this area, starting when Yoon Kim proposed a series of experiments with convolutional neural networks trained on top of pre-trained word vectors for sentence-level classification tasks. A simple CNN with little hyperparameter tuning and static vectors achieves excellent results on multiple benchmarks. Experiments were done on different datasets with different parameters of CNN layers. Initially, base CNN was used (regular CNN). The architecture Kim shows is that sentences are represented as vectors of words; these words are converted into (300D) vectors giving us a 2D representation for each sentence. All the other researchers initially used this basic CNN structure, and then the modification was done. In another study, a model called "Lightweight CNN" is used, an architecture proposed by Ritu Yadav in her paper to solve the high memory consumption issues. The proposed network combines separable convolution, dilated convolution, and batch normalization to reduce memory consumption. Many other studies show that the model can be based on character level or word level, and accordingly, CNN behaves.</p>
+<p>Convolutional Neural Networks, a deep learning algorithm, is used for various computations, especially when dealing with images. The architecture of CNN can be used in the field of "Text Classification" to specify the labels to text. Much work has been done in this area dealing with text classification with different models and CNN but when it comes to neural network intelligence most of the work delas with images and not text.<br>
+Starting when Yoon Kim proposed a series of experiments with convolutional neural networks trained on top of pre-trained word vectors for sentence-level classification tasks,a simple CNN with little hyperparameter tuning and static vectors achieves excellent results on multiple benchmarks. Experiments were done on different datasets with different parameters of CNN layers. Initially, base CNN was used (regular CNN). The architecture Kim shows is that sentences are represented as vectors of words; these words are converted into (300D) vectors giving us a 2D representation for each sentence. All the other researchers initially used this basic CNN structure, and then the modification was done. In another study, a model called "Lightweight CNN" is used, an architecture proposed by Ritu Yadav in her paper to solve the high memory consumption issues. The proposed network combines separable convolution, dilated convolution, and batch normalization to reduce memory consumption. Many other studies show that the model can be based on character level or word level, and accordingly, CNN behaves.</p>
 
 <p>In a study for Introduction to Neural Architecture Search for Convolutional Networks Neural Architecture, it has been defined that  Search (NAS) is a research field that utilizes optimization algorithms to design optimal neural network architectures. Neural Architecture Search (NAS) is the research field that emerged from various efforts to automate the architectural design process. NAS has been able to produce many state-of-the-art networks. A NAS procedure can be divided into several components, each of them contributing to the trajectory as well as to the result of the search. The most distinct features are the Search Space, Optimization, and Candidate Evaluation. Search space defines the networks that can examine to produce the final architecture. The optimization method dictates how to explore the search
-space. The concept of search space will be used for Neural Network Intelligence (nni), where we define various hyperparameters for our model and, accordingly, it trains to produce the best results.</p>
+space. The concept of search space will be a base while delaing with Neural Network Intelligence (nni), where we define various hyperparameters for our model and, accordingly, it trains to produce the best results.</p>
 
 
 ## What is Text Classification?
@@ -35,12 +36,13 @@ There may be different models through which we can train our machines to underst
 1. Corpus in NLP: count the occurrence of each word in the sentence and provide it for the entire text.
 2. CountVectorizer: make a vocabulary where every word has its special index number. 
 
+Let's take the above example to see how it works.
 Input:
     
     from sklearn.feature_extraction.text import CountVectorizer
-    examplevectorizer = CountVectorizer()
-    examplevectorizer.fit(example)
-    examplevectorizer.vocabulary_ 
+    example = CountVectorizer()
+    example.fit(example)
+    example.vocabulary_ 
 
 Output:
 
@@ -52,7 +54,7 @@ Output:
     } 
     
 This resulting vector is called a feature vector. Each word has its category in the feature vector, which is in numeric terms.
-The data is prepared to fit in the model.There can be different models that can be used to fit the textual data, and in this article, Linear Regression, Naive Bayes, TextCNN, and RNN have been used to compare the models. 
+The data is prepared to fit in the model.There can be different models that can be used to fit the textual data, and in this article, Logistic Regression, Naive Bayes and TextCNN have been used to compare the models. 
 As Yoon Kim gave his paper, the main focus remains on TextCNN and its variants.
 
 ### Introduction to CNN 
@@ -67,16 +69,14 @@ The image above shows the CNN structure used by Yoon Kim, which is the basic CNN
 Word embedding represents the density of the word vector, which maps semantically similar words. It is a different way to preprocess the data. It does not consider the text as a human language but maps the structure of sets of words used in the corpus. They aim to map words into a geometric space which is called an embedding space.
 The most common words do not have an extensive index in the embedding space.
 
-One problem is the different lengths of words for which we need to specify the length of the word sequence and provide max length parameters to solve it. We need to use pad_sequence(), which pads the
-sequence of words with zeros. Once the padding is done, we have to append zero value to matrices and now apply the deep learning model. This is how word embedding makes relations between words. In the next step, we will try to fit the TextCNN model.
+One problem is the different lengths of words for which we need to specify the length of the word sequence and provide max length parameters to solve it. We need to use pad_sequence(), which pads the sequence of words with zeros. Once the padding is done, we have to append zero value to matrices and now apply the deep learning model. This is how word embedding makes relations between words. In the next step, we will try to fit the TextCNN model.
 
-We use a predefined word embedding available from the library for better performance. If the data is not embedded, then many embeddings are available open-source, like Glove and Word2Vec.
-When we do dot product of vectors representing text, which turns zero if they belong to the same class, but if we do dot products of embedded words, we can find interrelation of words for a specific class. The kernel(filter layer) is passed over these embeddings to find convolutions, and the Max Pooling Layer of CNN dimensionally reduces these.
-Lastly, the fully connected layers and the output activation function will give values for each class.
+We use a predefined word embedding available from the library for better performance. If the data is not embedded, then many embeddings are available open-source, like Glove and Word2Vec.When we do dot product of vectors representing text, which turns zero if they belong to the same class, but if we do dot products of embedded words, we can find interrelation of words for a specific class. The kernel(filter layer) is passed over these embeddings to find convolutions, and the Max Pooling Layer of CNN dimensionally reduces these.Lastly, the fully connected layers and the output activation function will give values for each class.
+
 ### The Code:
 (code can be found at )
 **Dataset Used.**
-The dataset used to test the models is Movie Review Dataset. (MR Dataset). In this dataset, the phrases are given and their corresponding sentiments.
+The dataset used to test the models is Movie Review Dataset (MR Dataset). In this dataset, the phrases are given and their corresponding sentiments.
 <center><img src='images/data.PNG'></center>
 **Yoon Kim code implementations and results:**
 The architecture Kim uses is:
@@ -114,9 +114,8 @@ These values may change and hence the accuracies may change accordingly.
  This was the basic implementation and results for Text Classification using CNN.
 
 ### NNI — An AutoML Toolkit
-AutoML is “Automatic Machine Learning,” a toolkit that runs machine learning models and implements experiments automatically.
-In the context of the neural network, AutoML searches for different neural network architectures by taking into account the hyperparameters and training them to find the best fit model in a process called Neural Architecture Search.
-Neural Network Intelligence (NNI) is a python AutoML package that works on Linux and Windows. It trains neural network models and finds a tuple of hyper-parameters that yields an optimal model.
+AutoML is “Automatic Machine Learning,” a toolkit that runs machine learning models and implements experiments automatically.In the context of the neural network, AutoML searches for different neural network architectures by taking into account the hyperparameters and training them to find the best fit model in a process called Neural Architecture Search.<br>
+Neural Network Intelligence (NNI) is a python AutoML package that works on Linux and Windows. It trains neural network models and finds a tuple of hyper-parameters that yields an optimal model. It automates feature engineering, neural architecture search, hyperparameter tuning, and model compression for deep learning.
 The environment of NNI contains the main python file where the code is written and a config.yml file that connects the code. A .json file is where the search_space is defined, which contains different hyperparameters that the NNI framework uses and finds the best for the model. This can be defined inside the .yml file itself.
 NNI runs experiments many times when it is training the model. Each of those attempts at applying a new configuration is called a Trial. NNI also provides a web interface that helps users investigate their trials and explore the experiment results.
 A TextCNN model was implemented to test this framework. The dataset remained the same( MR Dataset), and then a simple CNN model was made, and different parameters were defined in the .yml file. After training, the web interface of NNI shows the result, and we can get a model with hyperparameters giving the best accuracy.
@@ -128,7 +127,7 @@ The folder contains the following files:
     config.yml (search space and other details defined here)
     dataset
     
-The folder contains the following files:
+How to run the code:
     
     redirect to the folder where the main.py and config.yml files are present.
     nnictl create  --config config.yml
@@ -149,8 +148,7 @@ The best results according to the search space defined came out with the followi
  Epochs |7 |
  Accuracy|59.5|
 
-This search space can take up different values and accordingly the accuracy changes.
-As the model architecture remained same till now, this is the best accuracy obtained.
+This search space can take up different values and accordingly the accuracy changes. As the model architecture remained same till now, this is the best accuracy obtained.
  
 ### AutoKeras
 AutoKeras² is an open-source library that implements³ AutoML for deep learning using the Keras API. It automatically determines the best model and hyperparameters. 

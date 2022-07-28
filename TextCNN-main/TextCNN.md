@@ -91,7 +91,9 @@ Approaches for creating these word vectors:
 4. CNN-multichannel: Two sets of word vectors are used. Fine-tuning is done.
 Convolutions are performed on these 2D representations with different window sizes (3, 4, and 5) are performed on the representations directly and then max pooled. Then the final predictions are made!
 For the implementation of these, I took the Movies Review dataset (MR) and tried to obtain the results. MR datset is used to for all the models so that we can compare them.
-My Results:
+
+My Results: <br>
+
 |Parameter   |  Value | 
 |:----:|:----:|
  Kernel_Size | [3,4,5] |

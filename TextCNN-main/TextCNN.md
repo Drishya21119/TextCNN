@@ -78,9 +78,9 @@ We use a predefined word embedding available from the library for better perform
 **Dataset Used.**
 The dataset used to test the models is Movie Review Dataset (MR Dataset). In this dataset, the phrases are given and their corresponding sentiments.
 <center><img src='images/data.PNG'></center>
-**Yoon Kim code implementations and results:**
-The architecture Kim uses is:
-1. Sentences are represented as vectors of words.
+**Yoon Kim code implementations and results:** <br>
+The architecture Kim uses is: <br>
+1. Sentences are represented as vectors of words. <br>
 2. These words are converted into (300D) vectors giving us a 2D representation for each sentence.
 
 Approaches for creating these word vectors:

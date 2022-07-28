@@ -8,7 +8,7 @@ description: Text Classification using Convolutional Neural Networks
 img: assets/img/posts/20210125/Perceptron.jpg 
 tags: [machine learning, coding, neural networks]
 author: Drishya Uniyal
-github:  amaynez/Perceptron/
+github:  Drishya21119/TextCNN
 mathjax: yes
 ---
 ## Overview
